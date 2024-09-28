@@ -1,6 +1,8 @@
 // Copyright (c) Bruno Sales <me@baliestri.dev>. Licensed under the MIT License.
 // See the LICENSE file in the repository root for full license text.
 
+using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Mercury.PowerShell.DependencyInjection.Attributes;
 using Mercury.PowerShell.DependencyInjection.Exceptions;
@@ -24,6 +26,7 @@ public static class ServiceProviderExtensions {
     serviceProvider.bindInjections(cmdlet);
   }
 
+  [ExcludeFromCodeCoverage]
   private static void bindInjections<TCmdlet>(this IServiceProvider serviceProvider, TCmdlet obj) where TCmdlet : PSAsyncCmdlet {
     var type = obj.GetType();
 
@@ -35,6 +38,7 @@ public static class ServiceProviderExtensions {
       .GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public)
       .Where(fieldInfo => Attribute.IsDefined(fieldInfo, typeof(InjectAttribute)));
 
+    var parallelExceptions = new ConcurrentQueue<Exception?>();
     var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 10 };
 
     Parallel.ForEach(properties, parallelOptions, property => {
@@ -58,7 +62,7 @@ public static class ServiceProviderExtensions {
         return;
       }
 
-      RequiredServiceNotFoundException.ThrowIf(serviceDependencyAttribute.Required, property.PropertyType);
+      parallelExceptions.Enqueue(RequiredServiceNotFoundException.TryCreate(serviceDependencyAttribute.Required, property.PropertyType));
     });
 
     Parallel.ForEach(fields, parallelOptions, field => {
@@ -74,7 +78,16 @@ public static class ServiceProviderExtensions {
         return;
       }
 
-      RequiredServiceNotFoundException.ThrowIf(serviceDependencyAttribute.Required, field.FieldType);
+      parallelExceptions.Enqueue(RequiredServiceNotFoundException.TryCreate(serviceDependencyAttribute.Required, field.FieldType));
     });
+
+    var notNullParallelExceptions = parallelExceptions
+      .Where(exception => exception is not null)
+      .Cast<Exception>()
+      .ToArray();
+
+    if (notNullParallelExceptions.Length > 0) {
+      throw new AggregateException(notNullParallelExceptions);
+    }
   }
 }

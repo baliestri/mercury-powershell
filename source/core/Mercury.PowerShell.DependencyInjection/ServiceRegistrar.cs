@@ -6,6 +6,7 @@ using Mercury.PowerShell.DependencyInjection.Exceptions;
 
 namespace Mercury.PowerShell.DependencyInjection;
 
+[ExcludeFromCodeCoverage]
 internal static class ServiceRegistrar {
   /// <summary>
   ///   Determines whether the service provider is locked.

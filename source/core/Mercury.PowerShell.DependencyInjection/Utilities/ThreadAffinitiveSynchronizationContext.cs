@@ -4,6 +4,7 @@
 #nullable disable
 
 using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.ExceptionServices;
 
 namespace Mercury.PowerShell.DependencyInjection.Utilities;
@@ -14,6 +15,7 @@ namespace Mercury.PowerShell.DependencyInjection.Utilities;
 /// <remarks>
 ///   With thanks to Stephen Toub.
 /// </remarks>
+[ExcludeFromCodeCoverage]
 public sealed class ThreadAffinitiveSynchronizationContext
   : SynchronizationContext, IDisposable {
   /// <summary>

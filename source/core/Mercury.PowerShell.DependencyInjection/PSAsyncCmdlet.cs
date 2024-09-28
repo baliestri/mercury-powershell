@@ -1,6 +1,7 @@
 // Copyright (c) Bruno Sales <me@baliestri.dev>. Licensed under the MIT License.
 // See the LICENSE file in the repository root for full license text.
 
+using System.Diagnostics.CodeAnalysis;
 using System.Management.Automation;
 using Mercury.PowerShell.DependencyInjection.Exceptions;
 using Mercury.PowerShell.DependencyInjection.Extensions;
@@ -113,6 +114,7 @@ public abstract class PSAsyncCmdlet : PSCmdlet, IDisposable {
   ///   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
   /// </summary>
   /// <param name="isDisposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+  [ExcludeFromCodeCoverage]
   protected virtual void Dispose(bool isDisposing) {
     if (_isDisposed) {
       return;

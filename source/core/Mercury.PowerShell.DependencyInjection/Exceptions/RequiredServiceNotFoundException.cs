@@ -9,14 +9,11 @@ namespace Mercury.PowerShell.DependencyInjection.Exceptions;
 /// <param name="serviceType">The type of the service that was not found.</param>
 public sealed class RequiredServiceNotFoundException(Type serviceType) : Exception($"Could not find service for {serviceType.Name}.") {
   /// <summary>
-  ///   Throws an exception if the condition is <c>true</c>.
+  ///   Tries to create an exception if the condition is <c>true</c>.
   /// </summary>
   /// <param name="condition">The condition to be evaluated.</param>
   /// <param name="serviceType">The type of the service that was not found.</param>
-  /// <exception cref="RequiredServiceNotFoundException">Thrown when the condition is <c>true</c>.</exception>
-  public static void ThrowIf(bool condition, Type serviceType) {
-    if (condition) {
-      throw new RequiredServiceNotFoundException(serviceType);
-    }
-  }
+  /// <returns>The exception if the condition is <c>true</c>; otherwise, <c>null</c>.</returns>
+  public static RequiredServiceNotFoundException? TryCreate(bool condition, Type serviceType)
+    => condition ? new RequiredServiceNotFoundException(serviceType) : null;
 }
