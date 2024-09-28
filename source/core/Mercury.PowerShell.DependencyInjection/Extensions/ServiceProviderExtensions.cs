@@ -21,53 +21,60 @@ public static class ServiceProviderExtensions {
     ArgumentNullException.ThrowIfNull(serviceProvider);
     ArgumentNullException.ThrowIfNull(cmdlet);
 
-    serviceProvider.bindPropertyInjections(cmdlet);
-    serviceProvider.bindFieldInjections(cmdlet);
+    serviceProvider.bindInjections(cmdlet);
   }
 
-  private static void bindPropertyInjections<TCmdlet>(this IServiceProvider serviceProvider, TCmdlet obj) where TCmdlet : PSAsyncCmdlet {
+  private static void bindInjections<TCmdlet>(this IServiceProvider serviceProvider, TCmdlet obj) where TCmdlet : PSAsyncCmdlet {
     var type = obj.GetType();
+
     var properties = type
-      .GetProperties(BindingFlags.NonPublic | BindingFlags.Instance)
+      .GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public)
       .Where(propertyInfo => Attribute.IsDefined(propertyInfo, typeof(InjectAttribute)));
 
-    foreach (var property in properties) {
+    var fields = type
+      .GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public)
+      .Where(fieldInfo => Attribute.IsDefined(fieldInfo, typeof(InjectAttribute)));
+
+    var parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 10 };
+
+    Parallel.ForEach(properties, parallelOptions, property => {
       var serviceDependencyAttribute = property.GetCustomAttribute<InjectAttribute>(true);
 
       if (serviceDependencyAttribute is null) {
-        continue;
+        return;
       }
 
       var service = serviceProvider.GetService(property.PropertyType);
       if (service is not null) {
-        property.SetValue(obj, service);
-        continue;
+        try {
+          property.SetValue(obj, service);
+        }
+        catch (ArgumentException) {
+          // Property setter does not exist, try to set the backing field
+          var backingField = type.GetField($"<{property.Name}>k__BackingField", BindingFlags.NonPublic | BindingFlags.Instance);
+          backingField?.SetValue(obj, service);
+        }
+
+        return;
       }
 
       RequiredServiceNotFoundException.ThrowIf(serviceDependencyAttribute.Required, property.PropertyType);
-    }
-  }
+    });
 
-  private static void bindFieldInjections<TCmdlet>(this IServiceProvider serviceProvider, TCmdlet obj) where TCmdlet : PSAsyncCmdlet {
-    var type = obj.GetType();
-    var fields = type
-      .GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
-      .Where(fieldInfo => Attribute.IsDefined(fieldInfo, typeof(InjectAttribute)));
-
-    foreach (var field in fields) {
+    Parallel.ForEach(fields, parallelOptions, field => {
       var serviceDependencyAttribute = field.GetCustomAttribute<InjectAttribute>(true);
 
       if (serviceDependencyAttribute is null) {
-        continue;
+        return;
       }
 
       var service = serviceProvider.GetService(field.FieldType);
       if (service is not null) {
         field.SetValue(obj, service);
-        continue;
+        return;
       }
 
       RequiredServiceNotFoundException.ThrowIf(serviceDependencyAttribute.Required, field.FieldType);
-    }
+    });
   }
 }
