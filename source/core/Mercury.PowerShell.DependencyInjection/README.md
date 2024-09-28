@@ -40,7 +40,7 @@ Or, if you prefer, you can use the `IServicePipelines` interface to define your 
 **PS**: This one should also be used to inject services that are not possible to be marked with the `Injectable` attribute.
 
 ```csharp
-using Mercury.PowerShell.DependencyInjection;
+using Mercury.PowerShell.DependencyInjection.Abstractions;
 
 namespace SomeNamespace.Pipelines;
 
