@@ -7,7 +7,28 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <Authors>Bruno Sales</Authors>
+    <Description>Custom library for PowerShell dependency injection with asynchronism.</Description>
+    <Copyright>Copyright (c) 2024 Bruno Sales &lt;me@baliestri.dev&gt;</Copyright>
+    <Company>baliestri</Company>
+    <PackageId>Mercury.PowerShell.DependencyInjection</PackageId>
+    <PackageProjectUrl>https://github.com/baliestri/mercury-powershell/tree/main/source/core/Mercury.PowerShell.DependencyInjection</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/baliestri/mercury-powershell.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>powershell;async;dependency injection;</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup Label="NuGet">
+    <None Include="README.md" Pack="true" PackagePath="README.md"/>
+    <None Include="$(SolutionDir)LICENSE.md" Pack="true" PackagePath="LICENSE.md"/>
+  </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <DebugType>full</DebugType>
