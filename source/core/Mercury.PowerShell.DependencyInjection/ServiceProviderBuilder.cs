@@ -2,6 +2,7 @@
 // See the LICENSE file in the repository root for full license text.
 
 using System.Reflection;
+using Mercury.PowerShell.DependencyInjection.Abstractions;
 using Mercury.PowerShell.DependencyInjection.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -3,7 +3,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Mercury.PowerShell.DependencyInjection;
+namespace Mercury.PowerShell.DependencyInjection.Abstractions;
 
 /// <summary>
 ///   Blueprint for classes that register services pipelines in the DI registrar.
