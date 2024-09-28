@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury.PowerShell.Dependen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury.PowerShell.DependencyInjection.UnitTests", "tests\core\Mercury.PowerShell.DependencyInjection.UnitTests\Mercury.PowerShell.DependencyInjection.UnitTests.csproj", "{ACDA2793-8D1C-4102-B2C7-41F8A0A5900B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury.PowerShell.Storage", "source\core\Mercury.PowerShell.Storage\Mercury.PowerShell.Storage.csproj", "{6A31A064-D38B-49EB-9F8E-F19053D4DCA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury.PowerShell.Storage.UnitTests", "tests\core\Mercury.PowerShell.Storage.UnitTests\Mercury.PowerShell.Storage.UnitTests.csproj", "{97E070C9-0A48-4C44-91A7-B82AB58A9F14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,8 @@ Global
 		{63233099-192D-45B0-A2B5-0093967E853B} = {D1DFCF01-F1BC-4AFD-94D4-4BD0694C01C1}
 		{3E4F7A53-3734-4684-AA59-3D64575BBCA1} = {086AAEBC-E170-432D-95B7-E699FFB8813E}
 		{ACDA2793-8D1C-4102-B2C7-41F8A0A5900B} = {3FCB7D8B-6331-433F-8B8A-251103BB1F0E}
+		{6A31A064-D38B-49EB-9F8E-F19053D4DCA9} = {086AAEBC-E170-432D-95B7-E699FFB8813E}
+		{97E070C9-0A48-4C44-91A7-B82AB58A9F14} = {3FCB7D8B-6331-433F-8B8A-251103BB1F0E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3E4F7A53-3734-4684-AA59-3D64575BBCA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -50,5 +56,13 @@ Global
 		{ACDA2793-8D1C-4102-B2C7-41F8A0A5900B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACDA2793-8D1C-4102-B2C7-41F8A0A5900B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACDA2793-8D1C-4102-B2C7-41F8A0A5900B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A31A064-D38B-49EB-9F8E-F19053D4DCA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A31A064-D38B-49EB-9F8E-F19053D4DCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A31A064-D38B-49EB-9F8E-F19053D4DCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A31A064-D38B-49EB-9F8E-F19053D4DCA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E070C9-0A48-4C44-91A7-B82AB58A9F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E070C9-0A48-4C44-91A7-B82AB58A9F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E070C9-0A48-4C44-91A7-B82AB58A9F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E070C9-0A48-4C44-91A7-B82AB58A9F14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
