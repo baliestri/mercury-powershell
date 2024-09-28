@@ -34,6 +34,7 @@ public sealed class MySecondService : IMySecondService {
         // Do another thing
     }
 }
+```
 
 Or, if you prefer, you can use the `IServicePipelines` interface to define your services:
 
@@ -81,4 +82,3 @@ The services will be automatically injected into the cmdlet.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](../../../LICENSE) file for details.
-
