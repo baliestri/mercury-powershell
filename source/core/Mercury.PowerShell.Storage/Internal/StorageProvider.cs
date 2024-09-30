@@ -31,9 +31,8 @@ internal sealed class StorageProvider : IStorageProvider {
     Connection = new SQLiteAsyncConnection(_options.FilePath(), _options.OpenFlags);
 
     var tableUnion = tables.Union(_options.Tables);
+    var uniqueTables = tableUnion.Distinct().ToArray();
 
-    foreach (var table in tableUnion) {
-      await Connection.CreateTableAsync(table, CreateFlags.AllImplicit);
-    }
+    await Connection.CreateTablesAsync(CreateFlags.AllImplicit, uniqueTables);
   }
 }
