@@ -11,7 +11,7 @@ namespace Mercury.PowerShell.DependencyInjection.UnitTests.Cmdlets;
 [Cmdlet(VerbsDiagnostic.Test, "ServiceSample")]
 public sealed class TestServiceSampleCmdlet : PSAsyncCmdlet {
   [Inject]
-  internal TestServiceWithoutInterface _serviceWithoutInterface;
+  internal readonly TestServiceWithoutInterface _serviceWithoutInterface = default!;
 
   [Inject(Required = true)]
   internal ITestServiceWithInterface ServiceWithInterface { get; } = default!;

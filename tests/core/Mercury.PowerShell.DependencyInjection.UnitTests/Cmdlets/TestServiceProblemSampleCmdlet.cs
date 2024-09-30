@@ -10,7 +10,9 @@ namespace Mercury.PowerShell.DependencyInjection.UnitTests.Cmdlets;
 [Cmdlet(VerbsDiagnostic.Test, "ServiceProblemSample")]
 public sealed class TestServiceProblemSampleCmdlet : PSAsyncCmdlet {
   [Inject(Required = true)]
-  internal TestServiceNotInjected _serviceNotInjected;
+#pragma warning disable CS0414 // Field is assigned but its value is never used
+  internal TestServiceNotInjected _serviceNotInjected = default!;
+#pragma warning restore CS0414 // Field is assigned but its value is never used
 
   public void TriggerBeginProcessing() => BeginProcessing();
 }
