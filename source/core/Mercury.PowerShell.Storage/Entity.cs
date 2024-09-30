@@ -1,16 +1,19 @@
-﻿using SQLite;
+﻿using System.Diagnostics.CodeAnalysis;
+using SQLite;
 
 namespace Mercury.PowerShell.Storage;
 
 /// <summary>
 ///   Represents an entity.
 /// </summary>
+[ExcludeFromCodeCoverage]
 public abstract class Entity {
   /// <summary>
   ///   The entity identifier.
   /// </summary>
   [PrimaryKey]
-  public Ulid Id { get; init; } = Ulid.NewUlid();
+  [AutoIncrement]
+  public long Id { get; init; }
 
   /// <summary>
   ///   The entity creation date.

@@ -44,7 +44,7 @@ internal sealed class Repository<TEntity>(IStorageProvider provider) : IReposito
   }
 
   /// <inheritdoc />
-  public async Task UpdateAsync(Ulid id, Action<TEntity> action, CancellationToken cancellationToken = default) {
+  public async Task UpdateAsync(long id, Action<TEntity> action, CancellationToken cancellationToken = default) {
     ArgumentNullException.ThrowIfNull(id);
     ArgumentNullException.ThrowIfNull(action);
 
@@ -110,7 +110,7 @@ internal sealed class Repository<TEntity>(IStorageProvider provider) : IReposito
   }
 
   /// <inheritdoc />
-  public async Task DeleteAsync(Ulid id, CancellationToken cancellationToken = default) {
+  public async Task DeleteAsync(long id, CancellationToken cancellationToken = default) {
     ArgumentNullException.ThrowIfNull(id);
 
     var entity = await GetAsync(entity => entity.Id == id, cancellationToken);
@@ -121,7 +121,7 @@ internal sealed class Repository<TEntity>(IStorageProvider provider) : IReposito
   }
 
   /// <inheritdoc />
-  public async Task DeleteAsync(IEnumerable<Ulid> ids, CancellationToken cancellationToken = default) {
+  public async Task DeleteAsync(IEnumerable<long> ids, CancellationToken cancellationToken = default) {
     ArgumentNullException.ThrowIfNull(ids);
 
     var entities = await FindAsync(entity => ids.Contains(entity.Id), cancellationToken).ToImmutableListAsync();
@@ -152,7 +152,7 @@ internal sealed class Repository<TEntity>(IStorageProvider provider) : IReposito
   }
 
   /// <inheritdoc />
-  public async Task<bool> ExistsAsync(Ulid id, CancellationToken cancellationToken = default) {
+  public async Task<bool> ExistsAsync(long id, CancellationToken cancellationToken = default) {
     ArgumentNullException.ThrowIfNull(id);
 
     var count = await CountAsync(entity => entity.Id == id, cancellationToken);
@@ -168,7 +168,7 @@ internal sealed class Repository<TEntity>(IStorageProvider provider) : IReposito
   }
 
   /// <inheritdoc />
-  public async Task<TEntity?> GetAsync(Ulid id, CancellationToken cancellationToken = default) {
+  public async Task<TEntity?> GetAsync(long id, CancellationToken cancellationToken = default) {
     ArgumentNullException.ThrowIfNull(id);
 
     return await Task.Run(async () => await _connection.Table<TEntity>().FirstOrDefaultAsync(entity => entity.Id == id), cancellationToken);
