@@ -5,6 +5,9 @@ using SQLite;
 
 namespace Mercury.PowerShell.Storage.Options.Abstractions;
 
+/// <summary>
+///   Defines a contract for configuring the storage flags.
+/// </summary>
 public interface IConfigureStorageFlags : IConfigureStorageTables {
   /// <summary>
   ///   Sets the flags to use when opening the connection to the storage.

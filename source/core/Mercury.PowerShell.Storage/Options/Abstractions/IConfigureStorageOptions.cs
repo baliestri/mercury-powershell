@@ -3,6 +3,9 @@
 
 namespace Mercury.PowerShell.Storage.Options.Abstractions;
 
+/// <summary>
+///   Defines a contract for configuring the storage options.
+/// </summary>
 public interface IConfigureStorageOptions {
   /// <summary>
   ///   Finishes the building process.

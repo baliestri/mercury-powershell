@@ -3,6 +3,9 @@
 
 namespace Mercury.PowerShell.Storage.Options.Abstractions;
 
+/// <summary>
+///   Defines a contract for configuring the storage name.
+/// </summary>
 public interface IConfigureStorageName {
   /// <summary>
   ///   Sets the name of the storage.

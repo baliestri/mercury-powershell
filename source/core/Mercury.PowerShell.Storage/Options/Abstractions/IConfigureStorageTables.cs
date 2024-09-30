@@ -3,6 +3,9 @@
 
 namespace Mercury.PowerShell.Storage.Options.Abstractions;
 
+/// <summary>
+///   Defines a contract for configuring the storage tables.
+/// </summary>
 public interface IConfigureStorageTables : IConfigureStorageOptions {
   /// <summary>
   ///   Sets the tables to create in the storage.
