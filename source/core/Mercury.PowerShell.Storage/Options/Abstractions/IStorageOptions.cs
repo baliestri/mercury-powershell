@@ -12,15 +12,15 @@ public interface IStorageOptions {
   /// <summary>
   ///   The name of the storage.
   /// </summary>
-  string Name { get; set; }
+  string Name { get; init; }
 
   /// <summary>
   ///   The flags to use when opening the storage.
   /// </summary>
-  SQLiteOpenFlags OpenFlags { get; set; }
+  SQLiteOpenFlags OpenFlags { get; init; }
 
   /// <summary>
   ///   The tables to create in the storage.
   /// </summary>
-  IEnumerable<Type> Tables { get; set; }
+  IEnumerable<Type> Tables { get; init; }
 }

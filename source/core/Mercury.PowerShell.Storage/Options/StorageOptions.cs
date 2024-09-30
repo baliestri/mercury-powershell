@@ -12,30 +12,21 @@ namespace Mercury.PowerShell.Storage.Options;
 /// </summary>
 [ExcludeFromCodeCoverage]
 public sealed class StorageOptions : IStorageOptions {
-  internal static readonly StorageOptions Empty = new() {
-    Name = string.Empty,
-    OpenFlags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache
-  };
+  internal StorageOptions() { }
 
   /// <inheritdoc />
-  public required string Name { get; set; }
+  public required string Name { get; init; }
 
   /// <inheritdoc />
-  public SQLiteOpenFlags OpenFlags { get; set; }
+  public SQLiteOpenFlags OpenFlags { get; init; }
 
   /// <inheritdoc />
-  public IEnumerable<Type> Tables { get; set; } = [];
+  public IEnumerable<Type> Tables { get; init; } = [];
 
-  internal static IStorageOptions WithName(string name)
-    => new StorageOptions {
-      Name = name,
-      OpenFlags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache
-    };
-
-  internal static IStorageOptions WithNameAndTables(string name, IEnumerable<Type> tables)
-    => new StorageOptions {
-      Name = name,
-      OpenFlags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache,
-      Tables = tables
-    };
+  /// <summary>
+  ///   Configures the storage options.
+  /// </summary>
+  /// <returns>The builder.</returns>
+  public static IConfigureStorageName Configure()
+    => new ConfigureStorageOptions();
 }
