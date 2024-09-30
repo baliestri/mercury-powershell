@@ -11,16 +11,17 @@ using SQLite;
 namespace Mercury.PowerShell.Storage.Internal;
 
 internal sealed class StorageProvider : IStorageProvider {
-  private readonly IStorageOptions _options;
-
   public StorageProvider(IStorageOptions options) {
     ArgumentException.ThrowIfNullOrEmpty(options.Name, nameof(options.Name));
 
-    _options = options;
+    Options = options;
   }
 
   /// <inheritdoc />
   public SQLiteAsyncConnection Connection { get; private set; } = default!;
+
+  /// <inheritdoc />
+  public IStorageOptions Options { get; }
 
   public async Task InitializeAsync() {
     var assemblies = AppDomain.CurrentDomain.GetAssemblies();
@@ -28,9 +29,9 @@ internal sealed class StorageProvider : IStorageProvider {
       .SelectMany(assembly => assembly.GetTypes())
       .Where(type => type.GetCustomAttribute<StorageTable>() is not null);
 
-    Connection = new SQLiteAsyncConnection(_options.FilePath(), _options.OpenFlags);
+    Connection = new SQLiteAsyncConnection(Options.FilePath(), Options.OpenFlags);
 
-    var tableUnion = tables.Union(_options.Tables);
+    var tableUnion = tables.Union(Options.Tables);
     var uniqueTables = tableUnion.Distinct().ToArray();
 
     await Connection.CreateTablesAsync(CreateFlags.AllImplicit, uniqueTables);

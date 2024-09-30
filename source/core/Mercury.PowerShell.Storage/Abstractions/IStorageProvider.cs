@@ -1,6 +1,7 @@
 // Copyright (c) Bruno Sales <me@baliestri.dev>. Licensed under the MIT License.
 // See the LICENSE file in the repository root for full license text.
 
+using Mercury.PowerShell.Storage.Options.Abstractions;
 using SQLite;
 
 namespace Mercury.PowerShell.Storage.Abstractions;
@@ -13,4 +14,9 @@ public interface IStorageProvider {
   ///   The connection to the SQLite database.
   /// </summary>
   SQLiteAsyncConnection Connection { get; }
+
+  /// <summary>
+  ///   The storage options.
+  /// </summary>
+  IStorageOptions Options { get; }
 }
