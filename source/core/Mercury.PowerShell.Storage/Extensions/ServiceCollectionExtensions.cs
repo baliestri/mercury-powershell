@@ -21,9 +21,9 @@ public static class ServiceCollectionExtensions {
   /// <param name="serviceCollection">The service collection.</param>
   /// <param name="configure">The options.</param>
   /// <returns>The service collection itself.</returns>
-  public static IServiceCollection AddStorage(this IServiceCollection serviceCollection, Action<IStorageOptions> configure) {
-    var options = StorageOptions.Empty;
-    configure.Invoke(options);
+  public static IServiceCollection AddStorage(this IServiceCollection serviceCollection, Func<IConfigureStorageName, IStorageOptions> configure) {
+    var configureOptions = StorageOptions.Configure();
+    var options = configure.Invoke(configureOptions);
 
     var provider = new StorageProvider(options);
 
