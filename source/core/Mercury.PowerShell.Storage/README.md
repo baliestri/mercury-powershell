@@ -4,6 +4,11 @@ This one has `PowerShell` in the name, but I'm unsure about this. I pretend to u
 through [Mercury.PowerShell.DependencyInjection](../Mercury.PowerShell.DependencyInjection) injection, but it does not
 specifically use PowerShell. It's just a storage library.
 
+## Note
+
+This package was made for personal use, it was developed to .NET 8.0+ and not to .NET Standard. If you want to use it to be targeted to another
+framework, you can open an issue, and we can discuss it.
+
 ## Installation
 
 ```powershell

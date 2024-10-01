@@ -2,6 +2,11 @@
 
 This package provides a simple way to deal with dependency injection in PowerShell.
 
+## Note
+
+This package was made for personal use, it was developed to .NET 8.0+ and not to .NET Standard. If you want to use it to be targeted to another
+framework, you can open an issue, and we can discuss it.
+
 ## Installation
 
 ```powershell
