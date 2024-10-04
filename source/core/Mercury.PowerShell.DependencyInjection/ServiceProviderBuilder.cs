@@ -37,10 +37,10 @@ internal sealed class ServiceProviderBuilder {
     var assemblies = AppDomain.CurrentDomain.GetAssemblies();
     var pipelines = assemblies
       .SelectMany(assembly => assembly.GetTypes())
-      .Where(type => type is { IsClass: true, IsAbstract: false } && typeof(IServicePipelines).IsAssignableFrom(type));
+      .Where(type => type is { IsClass: true, IsAbstract: false } && typeof(IServiceCollectionPipeline).IsAssignableFrom(type));
 
     foreach (var pipeline in pipelines) {
-      var instance = Activator.CreateInstance(pipeline) as IServicePipelines;
+      var instance = Activator.CreateInstance(pipeline) as IServiceCollectionPipeline;
       instance?.Register(_serviceCollection);
     }
 

@@ -50,7 +50,7 @@ using Mercury.PowerShell.DependencyInjection.Abstractions;
 
 namespace SomeNamespace.Pipelines;
 
-public sealed class MyServicePipelines : IServicePipelines {
+public sealed class MyServiceCollectionPipeline : IServiceCollectionPipeline {
     public void Register(IServiceCollection serviceCollection) {
         serviceCollection.AddSingleton<MyFirstService>();
         serviceCollection.AddScoped<IMySecondService, MySecondService>();
@@ -69,7 +69,10 @@ namespace SomeNamespace.Cmdlets;
 
 [Cmdlet(VerbsCommon.Get, "Something")]
 public sealed class GetSomethingCmdlet : PSAsyncCmdlet {
+    [Inject]
     private MyFirstService _firstService = default!; // As field, default! is used to suppress the warning
+
+    [Inject(Required = true)] // Throws an exception if the service is not found
     private IMySecondService SecondService { get; } = default!; // As property, the setter is not necessary
 
     // Or ProcessRecordAsync, if you prefer

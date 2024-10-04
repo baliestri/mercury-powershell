@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Mercury.PowerShell.DependencyInjection.Abstractions;
 
 /// <summary>
-///   Blueprint for classes that register services pipelines in the DI registrar.
+///   Blueprint for classes that register service collection pipelines in the DI registrar.
 /// </summary>
-public interface IServicePipelines {
+public interface IServiceCollectionPipeline {
   /// <summary>
   ///   Registers the pipelines in the service collection.
   /// </summary>
