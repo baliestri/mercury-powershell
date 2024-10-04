@@ -27,7 +27,7 @@ public static class ServiceCollectionExtensions {
 
     var provider = new StorageProvider(options);
 
-    Task.Run(async () => await provider.InitializeAsync()).Wait();
+    Task.Run(async () => await provider.InitializeAsync()).ConfigureAwait(false).GetAwaiter();
 
     serviceCollection.AddSingleton<IStorageProvider>(provider);
     serviceCollection.AddTransient(typeof(IReadOnlyRepository<>), typeof(Repository<>));
