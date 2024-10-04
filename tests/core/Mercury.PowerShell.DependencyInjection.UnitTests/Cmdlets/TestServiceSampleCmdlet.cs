@@ -19,7 +19,7 @@ public sealed class TestServiceSampleCmdlet : PSAsyncCmdlet {
   [Inject]
   internal ITestServiceThroughPipeline ServiceThroughPipeline { get; } = default!;
 
-  public override async Task ProcessRecordAsync(CancellationToken cancellationToken = default) {
+  protected override async Task ProcessRecordAsync(CancellationToken cancellationToken = default) {
     cancellationToken.ShouldNotBe(default, "The cancellation token should not be default.");
     cancellationToken.IsCancellationRequested.ShouldBeFalse("The cancellation token should not be requested.");
 

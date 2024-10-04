@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Mercury.PowerShell.DependencyInjection.UnitTests.Pipelines;
 
-public sealed class SomethingServicePipeline : IServicePipelines {
+public sealed class SomethingServicePipeline : IServiceCollectionPipeline {
   public void Register(IServiceCollection serviceCollection)
     => serviceCollection.AddTransient<ITestServiceThroughPipeline, TestServiceThroughPipeline>();
 }
