@@ -63,7 +63,7 @@ public abstract class PSAsyncCmdlet : PSCmdlet, IDisposable {
   ///   Default implementation in the base class just returns a completed task.
   /// </remarks>
   /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
-  public virtual async Task BeginProcessingAsync(CancellationToken cancellationToken = default)
+  protected virtual async Task BeginProcessingAsync(CancellationToken cancellationToken = default)
     => await Task.CompletedTask;
 
   /// <summary>
@@ -73,7 +73,7 @@ public abstract class PSAsyncCmdlet : PSCmdlet, IDisposable {
   ///   Default implementation in the base class just returns a completed task.
   /// </remarks>
   /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
-  public virtual async Task ProcessRecordAsync(CancellationToken cancellationToken = default)
+  protected virtual async Task ProcessRecordAsync(CancellationToken cancellationToken = default)
     => await Task.CompletedTask;
 
   /// <summary>
@@ -83,7 +83,7 @@ public abstract class PSAsyncCmdlet : PSCmdlet, IDisposable {
   ///   Default implementation in the base class just returns a completed task.
   /// </remarks>
   /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
-  public virtual async Task EndProcessingAsync(CancellationToken cancellationToken = default)
+  protected virtual async Task EndProcessingAsync(CancellationToken cancellationToken = default)
     => await Task.CompletedTask;
 
   /// <inheritdoc />
