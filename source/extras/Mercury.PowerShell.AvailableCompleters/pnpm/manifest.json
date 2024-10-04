@@ -1,0 +1,828 @@
+{
+  "version": "0.0.1",
+  "name": "pnpm",
+  "description": "PNPM is a fast, disk space efficient package manager for Node.js",
+  "entryPoints": ["pnpm", "pnpm.exe", "pnpm.cmd", "pnpm.ps1"],
+  "definitionTree": {
+    "globalOptions": [
+      {
+        "aliases": ["-C", "--dir"],
+        "description": "Run as if pnpm was started in '<path>' instead of the current working directory.",
+        "completionValue": "@std::directory"
+      },
+      {
+        "aliases": ["-w", "--workspace-root"],
+        "description": "Run as if pnpm was started in the root of the workspace instead of the current working directory."
+      },
+      {
+        "aliases": ["--no-color", "--color"],
+        "description": "Controls colors in the output. By default, output is always colored when it goes directly to a terminal."
+      },
+      {
+        "aliases": ["--filter"],
+        "description": "To select an exact package, just specify its name (@scope/pkg) or use a pattern to select a set of packages (@scope/*)."
+      },
+      {
+        "aliases": ["--filter-prod"],
+        "description": "Acts the same a '--filter' but omits 'devDependencies' when selecting dependency projects from the workspace."
+      },
+      {
+        "aliases": ["--test-pattern"],
+        "description": "Allows detecting whether the modified files are related to tests. If they are, the dependent packages of such modified packages are not included."
+      },
+      {
+        "aliases": ["--changed-files-ignore-pattern"],
+        "description": "Allows to ignore changed files by glob patterns when filtering for changed projects since the specified commit/branch."
+      }
+    ],
+    "commands": [
+      {
+        "aliases": ["add"],
+        "description": "Installs a package and any packages that it depends on. By default, any new package is installed as a production dependency.",
+        "options": [
+          {
+            "aliases": ["-P", "--save-prod"],
+            "description": "Install the specified packages as regular dependencies."
+          },
+          {
+            "aliases": ["-D", "--save-dev"],
+            "description": "Install the specified packages as development dependencies."
+          },
+          {
+            "aliases": ["-O", "--save-optional"],
+            "description": "Install the specified packages as optional dependencies."
+          },
+          {
+            "aliases": ["-E", "--save-exact"],
+            "description": "Saved dependencies will be configured with an exact version rather than using pnpm's default semver range operator."
+          },
+          {
+            "aliases": ["--save-peer"],
+            "description": "Add one or more packages to peer dependencies and install them as dev dependencies."
+          },
+          {
+            "aliases": ["--ignore-workspace-root-check"],
+            "description": "Adding a new dependency to the root workspace package fails, unless the '--ignore-workspace-root-check' or '-w' flag is used."
+          },
+          {
+            "aliases": ["-g", "--global"],
+            "description": "Install packages globally."
+          },
+          {
+            "aliases": ["--workspace"],
+            "description": "Only adds the new dependency if it is found in the workspace."
+          }
+        ]
+      },
+      {
+        "aliases": ["i", "install"],
+        "description": "Used to install all dependencies for a project.",
+        "options": [
+          {
+            "aliases": ["--force"],
+            "description": "Force reinstall dependencies, refetch packages modified in store, recreate a lockfile and/or modules directory created by a non-compatible version of pnpm."
+          },
+          {
+            "aliases": ["--offline"],
+            "description": "If 'true', pnpm will use only packages already available in the store. If a package won't be found locally, the installation will fail.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--prefer-offline"],
+            "description": "If 'true', staleness checks for cached data will be bypassed, but missing data will be requested from the server. To force full offline mode, use '--offline'.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["-P", "--prod"],
+            "description": "pnpm will not install any package listed in 'devDependencies' and will remove those insofar they were already installed, if the NODE_ENV environment variable is set to production."
+          },
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Only 'devDependencies' are installed and dependencies are removed insofar they were already installed, regardless of the NODE_ENV."
+          },
+          {
+            "aliases": ["--no-optional"],
+            "description": "Ignore 'optionalDependencies' altogether."
+          },
+          {
+            "aliases": ["--lockfile-only"],
+            "description": "When used, only updates pnpm-lock.yaml and package.json. Nothing gets written to the node_modules directory.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--fix-lockfile"],
+            "description": "Fix broken lockfile entries automatically."
+          },
+          {
+            "aliases": ["--frozen-lockfile"],
+            "description": "If 'true', pnpm doesn't generate a lockfile and fails to install if the lockfile is out of sync with the manifest / an update is needed or no lockfile is present.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--reporter"],
+            "description": "Allows you to choose the reporter that will log debug info to the terminal about the installation progress.",
+            "completionValue": "@std::values(default,silent,append-only,ndjson)"
+          },
+          {
+            "aliases": ["--use-store-server"],
+            "description": "Starts a store server in the background. The store server will keep running after installation is done.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--shamefully-hoist"],
+            "description": "Creates a flat node_modules structure, similar to that of npm or yarn.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--ignore-scripts"],
+            "description": "Do not execute any scripts defined in the project package.json and its dependencies.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--resolution-only"],
+            "description": "Re-runs resolution, useful for printing out peer dependency issues."
+          }
+        ]
+      },
+      {
+        "aliases": ["up", "update", "upgrade"],
+        "description": "Updates packages to their latest version based on the specified range.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Concurrently runs update in all subdirectories with a package.json (excluding node_modules)."
+          },
+          {
+            "aliases": ["-L", "--latest"],
+            "description": "Ignores the version range specified in package.json. Instead, the version specified by the latest tag will be used (potentially upgrading the packages across major versions)."
+          },
+          {
+            "aliases": ["-g", "--global"],
+            "description": "Update globally installed packages."
+          },
+          {
+            "aliases": ["--workspace"],
+            "description": "Tries to link all packages from the workspace. Versions are updated to match the versions of packages inside the workspace."
+          },
+          {
+            "aliases": ["-P", "--prod"],
+            "description": "Only update packages in 'dependencies' and 'optionalDependencies'."
+          },
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Only update packages in 'devDependencies'."
+          },
+          {
+            "aliases": ["--no-optional"],
+            "description": "Don't update packages in 'optionalDependencies'."
+          },
+          {
+            "aliases": ["-i", "--interactive"],
+            "description": "Show outdated dependencies and select which ones to update."
+          }
+        ]
+      },
+      {
+        "aliases": ["rm", "remove", "un", "uninstall"],
+        "description": "Removes packages from node_modules and from the project's package.json.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Concurrently runs remove in all subdirectories with a package.json (excluding node_modules)."
+          },
+          {
+            "aliases": ["-g", "--global"],
+            "description": "Remove globally installed packages."
+          },
+          {
+            "aliases": ["-P", "--save-prod"],
+            "description": "Only remove the dependency from dependencies."
+          },
+          {
+            "aliases": ["-D", "--save-dev"],
+            "description": "Only remove the dependency from 'devDependencies'."
+          },
+          {
+            "aliases": ["-O", "--save-optional"],
+            "description": "Only remove the dependency from 'optionalDependencies'."
+          }
+        ]
+      },
+      {
+        "aliases": ["ln", "link"],
+        "description": "Makes the current local package accessible system-wide, or in another location.",
+        "options": [
+          {
+            "aliases": ["--dir"],
+            "description": "Changes the link location to '<dir>'.",
+            "completionValue": "<dir>"
+          },
+          {
+            "aliases": ["--global"],
+            "description": "Links package from location where this command was executed or specified via --dir option to global node_modules, so it can be referred from another package with pnpm link --global '<pkg>'.",
+            "completionValue": "<gpkg>"
+          }
+        ]
+      },
+      {
+        "aliases": ["unlink"],
+        "description": "Unlinks a system-wide package (inverse of pnpm link).",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Unlink in every package found in subdirectories or in every workspace package, when executed inside a workspace."
+          }
+        ]
+      },
+      {
+        "aliases": ["rb", "rebuild"],
+        "description": "Rebuild a package.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "This command runs the pnpm rebuild command in every package of the monorepo."
+          }
+        ]
+      },
+      {
+        "aliases": ["prune"],
+        "description": "Removes unnecessary packages.",
+        "options": [
+          {
+            "aliases": ["--prod"],
+            "description": "Remove the packages specified in 'devDependencies'."
+          },
+          {
+            "aliases": ["--no-optional"],
+            "description": "Remove the packages specified in 'optionalDependencies'."
+          }
+        ]
+      },
+      {
+        "aliases": ["fetch"],
+        "description": "Fetch packages from a lockfile into virtual store, package manifest is ignored.",
+        "options": [
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Only development packages will be fetched."
+          },
+          {
+            "aliases": ["-P", "--prod"],
+            "description": "Development packages will not be fetched."
+          }
+        ]
+      },
+      {
+        "aliases": ["it", "install-test"],
+        "description": "Runs pnpm install followed immediately by pnpm test."
+      },
+      {
+        "aliases": ["dedupe"],
+        "description": "Perform an install removing older dependencies in the lockfile if a newer version can be used.",
+        "options": [
+          {
+            "aliases": ["--check"],
+            "description": "Check if running dedupe would result in changes without installing packages or editing the lockfile. Exits with a non-zero status code if changes are possible."
+          }
+        ]
+      },
+      {
+        "aliases": ["patch"],
+        "description": "Prepare a package for patching (inspired by a similar command in Yarn). This command will cause a package to be extracted in a temporary directory intended to be editable at will.",
+        "options": []
+      },
+      {
+        "aliases": ["patch-commit"],
+        "description": "Generate a patch out of a directory (inspired by a similar command in Yarn).",
+        "options": [
+          {
+            "aliases": ["--patches-dir"],
+            "description": "The generated patch file will be saved to this directory. By default, patches are saved to the patches directory in the root of the project.",
+            "completionValue": "@std::directory"
+          }
+        ]
+      },
+      {
+        "aliases": ["patch-remove"],
+        "description": "Remove existing patch files and settings in 'pnpm.patchedDependencies'."
+      },
+      {
+        "aliases": ["audit"],
+        "description": "Checks for known security issues with the installed packages.",
+        "options": [
+          {
+            "aliases": ["--audit-level"],
+            "description": "Only print advisories with severity greater than or equal to '<severity>'.",
+            "completionValue": "@std::values(low,moderate,high,critical)"
+          },
+          {
+            "aliases": ["--fix"],
+            "description": "Add overrides to the package.json file in order to force non-vulnerable versions of the dependencies."
+          },
+          {
+            "aliases": ["--json"],
+            "description": "Output audit report in JSON format."
+          },
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Only audit dev dependencies."
+          },
+          {
+            "aliases": ["-P", "--prod"],
+            "description": "Only audit production dependencies."
+          },
+          {
+            "aliases": ["--no-optional"],
+            "description": "Don't audit optionalDependencies."
+          },
+          {
+            "aliases": ["--ignore-registry-errors"],
+            "description": "If the registry responds with a non-200 status code, the process should exit with 0. So the process will fail only if the registry actually successfully responds with found vulnerabilities."
+          }
+        ]
+      },
+      {
+        "aliases": ["ls", "list"],
+        "description": "Output all the versions of packages that are installed, as well as their dependencies, in a tree-structure.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Perform command on every package in subdirectories or on every workspace package, when executed inside a workspace."
+          },
+          {
+            "aliases": ["--json"],
+            "description": "Log output in JSON format."
+          },
+          {
+            "aliases": ["--long"],
+            "description": "Show extended information."
+          },
+          {
+            "aliases": ["--parseable"],
+            "description": "Outputs package directories in a parseable format instead of their tree view."
+          },
+          {
+            "aliases": ["-g", "--global"],
+            "description": "List packages in the global install directory instead of in the current project."
+          },
+          {
+            "aliases": ["--depth"],
+            "description": "Max display depth of the dependency tree.",
+            "completionValue": "@std::values(Infinity)"
+          },
+          {
+            "aliases": ["-P", "--prod"],
+            "description": "Display only the dependency graph for packages in 'dependencies' and 'optionalDependencies'."
+          },
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Display only the dependency graph for packages in 'devDependencies'."
+          },
+          {
+            "aliases": ["--no-optional"],
+            "description": "Don't display packages from 'optionalDependencies'."
+          },
+          {
+            "aliases": ["--only-projects"],
+            "description": "Display only dependencies that are also projects within the workspace."
+          }
+        ]
+      },
+      {
+        "aliases": ["outdated"],
+        "description": "Checks for outdated packages. The check can be limited to a subset of the installed packages by providing arguments (patterns are supported).",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Check for outdated dependencies in every package found in subdirectories, or in every workspace package when executed inside a workspace."
+          },
+          {
+            "aliases": ["-g", "--global"],
+            "description": "List outdated global packages."
+          },
+          {
+            "aliases": ["--long"],
+            "description": "Print details."
+          },
+          {
+            "aliases": ["--format"],
+            "description": "Prints the outdated dependencies in the given format.",
+            "completionValue": "@std::values(table,list,json)"
+          },
+          {
+            "aliases": ["--compatible"],
+            "description": "Prints only versions that satisfy specifications in package.json."
+          },
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Checks only 'devDependencies'."
+          },
+          {
+            "aliases": ["-P", "--dev"],
+            "description": "Checks only 'dependencies' and 'optionalDependencies'."
+          },
+          {
+            "aliases": ["--no-optional"],
+            "description": "Doesn't check 'optionalDependencies'."
+          }
+        ]
+      },
+      {
+        "aliases": ["why"],
+        "description": "Shows all packages that depend on the specified package.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Show the dependency tree for the specified package on every package in subdirectories or on every workspace package when executed inside a workspace."
+          },
+          {
+            "aliases": ["--json"],
+            "description": "Show information in JSON format."
+          },
+          {
+            "aliases": ["--long"],
+            "description": "Show verbose output."
+          },
+          {
+            "aliases": ["--parseable"],
+            "description": "Show parseable output instead of tree view."
+          },
+          {
+            "aliases": ["-g", "--global"],
+            "description": "List packages in the global install directory instead of in the current project."
+          },
+          {
+            "aliases": ["-P", "--prod"],
+            "description": "Only display the dependency tree for packages in 'dependencies'."
+          },
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Only display the dependency tree for packages in 'devDependencies'."
+          },
+          {
+            "aliases": ["--only-projects"],
+            "description": "Display only dependencies that are also projects within the workspace."
+          }
+        ]
+      },
+      {
+        "aliases": ["run", "run-script"],
+        "description": "Runs a script defined in the package's manifest file.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "This runs an arbitrary command from each package's 'scripts' object."
+          },
+          {
+            "aliases": ["--if-present"],
+            "description": "This lets you run potentially undefined scripts without breaking the execution chain."
+          },
+          {
+            "aliases": ["--parallel"],
+            "description": "Completely disregard concurrency and topological sorting, running a given script immediately in all matching packages with prefixed streaming output."
+          },
+          {
+            "aliases": ["--stream"],
+            "description": "Stream output from child processes immediately, prefixed with the originating package directory."
+          },
+          {
+            "aliases": ["--aggregate-output"],
+            "description": "Aggregate output from child processes that are run in parallel, and only print output when the child process is finished."
+          },
+          {
+            "aliases": ["--resume-from"],
+            "description": "Resume execution from a particular project. This can be useful if you are working with a large workspace and you want to restart a build at a particular project without running through all of the projects that precede it in the build order."
+          },
+          {
+            "aliases": ["--report-summary"],
+            "description": "Record the result of the scripts executions into a pnpm-exec-summary.json file."
+          }
+        ]
+      },
+      {
+        "aliases": ["exec"],
+        "description": "Execute a shell command in scope of a project.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Execute the shell command in every project of the workspace."
+          },
+          {
+            "aliases": ["--resume-from"],
+            "description": "Resume execution from a particular project. This can be useful if you are working with a large workspace and you want to restart a build at a particular project without running through all of the projects that precede it in the build order."
+          },
+          {
+            "aliases": ["--parallel"],
+            "description": "Completely disregard concurrency and topological sorting, running a given script immediately in all matching packages with prefixed streaming output."
+          },
+          {
+            "aliases": ["-c", "--shell-mode"],
+            "description": "Runs the command inside of a shell. Uses /bin/sh on UNIX and \\cmd.exe on Windows."
+          },
+          {
+            "aliases": ["--report-summary"],
+            "description": "Record the result of the scripts executions into a pnpm-exec-summary.json file."
+          }
+        ]
+      },
+      {
+        "aliases": ["dlx"],
+        "description": "Fetches a package from the registry without installing it as a dependency, hotloads it, and runs whatever default command binary it exposes.",
+        "options": [
+          {
+            "aliases": ["--package"],
+            "description": "The package to install before running the command."
+          },
+          {
+            "aliases": ["-c", "--shell-mode"],
+            "description": "Runs the command inside of a shell. Uses /bin/sh on UNIX and \\cmd.exe on Windows."
+          },
+          {
+            "aliases": ["-s", "--silent"],
+            "description": "Only the output of the executed command is printed."
+          }
+        ]
+      },
+      {
+        "aliases": ["env"],
+        "description": "Manages the Node.js environment.",
+        "options": [
+          {
+            "aliases": ["-g", "--global"],
+            "description": "The changes are made systemwide."
+          }
+        ]
+      },
+      {
+        "aliases": ["publish"],
+        "description": "Publishes a package to the registry.",
+        "options": [
+          {
+            "aliases": ["-r", "--recursive"],
+            "description": "Publish all packages from the workspace."
+          },
+          {
+            "aliases": ["--json"],
+            "description": "Show information in JSON format."
+          },
+          {
+            "aliases": ["--tag"],
+            "description": "Publishes the package with the given tag. By default, pnpm publish updates the latest tag."
+          },
+          {
+            "aliases": ["--access"],
+            "description": "Tells the registry whether the published package should be public or restricted.",
+            "completionValue": "@std::values(public,restricted)"
+          },
+          {
+            "aliases": ["--no-git-checks"],
+            "description": "Don't check if current branch is your publish branch, clean, and up-to-date with remote."
+          },
+          {
+            "aliases": ["--publish-branch"],
+            "description": "The primary branch of the repository which is used for publishing the latest changes."
+          },
+          {
+            "aliases": ["--force"],
+            "description": "Try to publish packages even if their current version is already found in the registry."
+          },
+          {
+            "aliases": ["--report-summary"],
+            "description": "Save the list of published packages to pnpm-publish-summary.json."
+          },
+          {
+            "aliases": ["--dry-run"],
+            "description": "Does everything a publish would do except actually publishing to the registry."
+          },
+          {
+            "aliases": ["--otp"],
+            "description": "When publishing packages that require two-factor authentication, this option can specify a one-time password."
+          }
+        ]
+      },
+      {
+        "aliases": ["pack"],
+        "description": "Create a tarball from a package.",
+        "options": [
+          {
+            "aliases": ["--pack-destination"],
+            "description": "Directory in which pnpm pack will save tarballs. The default is the current working directory.",
+            "completionValue": "@std::directory"
+          },
+          {
+            "aliases": ["--pack-gzip-level"],
+            "description": "Specifying custom compression level."
+          }
+        ]
+      },
+      {
+        "aliases": ["m", "multi", "recursive"],
+        "description": "Runs a command in every project of a workspace, when used with the following commands.",
+        "options": [
+          {
+            "aliases": ["--link-workspace-packages"],
+            "description": "Link locally available packages in workspaces of a monorepo into node_modules instead of re-downloading them from the registry."
+          },
+          {
+            "aliases": ["--workspace-concurrency"],
+            "description": "Set the maximum number of tasks to run simultaneously. For unlimited concurrency use Infinity."
+          },
+          {
+            "aliases": ["--bail"],
+            "description": "Stops when a task throws an error."
+          },
+          {
+            "aliases": ["--no-bail"],
+            "description": "Continues processing all tasks even after a task throws an error."
+          },
+          {
+            "aliases": ["--sort"],
+            "description": "Packages are sorted topologically (dependencies before dependents)."
+          },
+          {
+            "aliases": ["--no-sort"],
+            "description": "Packages are processed in the order they appear in the workspace's package.json file."
+          },
+          {
+            "aliases": ["--reverse"],
+            "description": "The order of packages is reversed."
+          }
+        ]
+      },
+      {
+        "aliases": ["server"],
+        "description": "Manage a store server.",
+        "options": [
+          {
+            "aliases": ["--background"],
+            "description": "Runs the server in the background, similar to daemonizing on UNIX systems.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--network-concurrency"],
+            "description": "The maximum number of network requests to process simultaneously."
+          },
+          {
+            "aliases": ["--protocol"],
+            "description": "The communication protocol used by the server. When this is set to auto, IPC is used on all systems except for Windows, which uses TCP.",
+            "completionValue": "@std::values(auto,tcp,ipc)"
+          },
+          {
+            "aliases": ["--port"],
+            "description": "The port number to use when TCP is used for communication. If a port is specified and the protocol is set to auto, regardless of system type, the protocol is automatically set to use TCP."
+          },
+          {
+            "aliases": ["--store-dir"],
+            "description": "The directory to use for the content addressable store.",
+            "completionValue": "@std::directory"
+          },
+          {
+            "aliases": ["--lock", "--no-lock"],
+            "description": "Set whether to make the package store immutable to external processes while the server is running or not.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--ignore-stop-requests"],
+            "description": "Prevents you from stopping the server using 'pnpm server stop'.",
+            "completionValue": "@std::values(true,false)"
+          },
+          {
+            "aliases": ["--ignore-upload-requests"],
+            "description": "Prevents creating a new side effect cache during install.",
+            "completionValue": "@std::values(true,false)"
+          }
+        ]
+      },
+      {
+        "aliases": ["root"],
+        "description": "Prints the effective modules directory.",
+        "options": [
+          {
+            "aliases": ["-g", "--global"],
+            "description": "The global package's modules directory is printed."
+          }
+        ]
+      },
+      {
+        "aliases": ["bin"],
+        "description": "Prints the directory into which the executables of dependencies are linked.",
+        "options": [
+          {
+            "aliases": ["-g", "--global"],
+            "description": "Prints the location of the globally installed executables."
+          }
+        ]
+      },
+      {
+        "aliases": ["deploy"],
+        "description": "Deploy a package from a workspace.",
+        "options": [
+          {
+            "aliases": ["-D", "--dev"],
+            "description": "Only 'devDependencies' are installed regardless of the NODE_ENV."
+          },
+          {
+            "aliases": ["--no-optional"],
+            "description": "Packages in 'optionalDependencies' are not installed."
+          },
+          {
+            "aliases": ["-P", "--prod"],
+            "description": "Packages in 'devDependencies' won't be installed."
+          }
+        ]
+      },
+      {
+        "aliases": ["c", "config"],
+        "description": "Manage the configuration files.",
+        "options": [
+          {
+            "aliases": ["-g", "--global"],
+            "description": "Set the configuration in the global config file."
+          },
+          {
+            "aliases": ["--location"],
+            "description": "When set to project, the .npmrc file at the nearest package.json will be used."
+          },
+          {
+            "aliases": ["--json"],
+            "description": "Show all the config settings in JSON format."
+          }
+        ]
+      }
+    ],
+    "childCommands": {
+      "licenses": [
+        {
+          "aliases": ["list"],
+          "description": "Lists the licenses for installed packages."
+        }
+      ],
+      "run": "@pwsh::exec(Get-PackageJson, [-Scripts])",
+      "exec": "@pwsh::exec(Get-PackageJson, [-Binaries])",
+      "env": [
+        {
+          "aliases": ["use"],
+          "description": "Install and use the specified version of Node.js."
+        },
+        {
+          "aliases": ["remove"],
+          "description": "Removes the specified version of Node.JS."
+        },
+        {
+          "aliases": ["list"],
+          "description": "List Node.js versions available locally or remotely."
+        }
+      ],
+      "server": [
+        {
+          "aliases": ["start"],
+          "description": "Starts a server that performs all interactions with the store. Other commands will delegate any store-related tasks to this server."
+        },
+        {
+          "aliases": ["stop"],
+          "description": "Stops the store server."
+        },
+        {
+          "aliases": ["status"],
+          "description": "Prints information about the running server."
+        }
+      ],
+      "store": [
+        {
+          "aliases": ["status"],
+          "description": "Checks for modified packages in the store."
+        },
+        {
+          "aliases": ["add"],
+          "description": "Functionally equivalent to pnpm add, except this adds new packages to the store directly without modifying any projects or files outside of the store."
+        },
+        {
+          "aliases": ["prune"],
+          "description": "Removes unreferenced packages from the store."
+        },
+        {
+          "aliases": ["path"],
+          "description": "Returns the path to the active store directory."
+        }
+      ],
+      "config": [
+        {
+          "aliases": ["set"],
+          "description": "Set the config key to the value provided."
+        },
+        {
+          "aliases": ["get"],
+          "description": "Print the config value for the provided key."
+        },
+        {
+          "aliases": ["delete"],
+          "description": "Remove the config key from the config file."
+        },
+        {
+          "aliases": ["list"],
+          "description": "Show all the config settings."
+        }
+      ]
+    }
+  }
+}
