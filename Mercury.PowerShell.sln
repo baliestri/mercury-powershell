@@ -33,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury.PowerShell.Argument
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury.PowerShell.Hooks", "source\modules\Mercury.PowerShell.Hooks\Mercury.PowerShell.Hooks.csproj", "{42C2EE31-DF9B-4909-BB98-438E3A21EA18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury.PowerShell.Hooks.UnitTests", "tests\modules\Mercury.PowerShell.Hooks.UnitTests\Mercury.PowerShell.Hooks.UnitTests.csproj", "{A1162144-A71A-436F-A53F-3690F4A7AE46}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,7 +55,6 @@ Global
 		{B4631AA7-87B5-4A47-9238-B7E124468EBF} = {69290E46-397D-481F-970C-C9A4D5C635EE}
 		{455A5AC9-D357-4DE3-8DC9-CCB1B8B6E20E} = {63233099-192D-45B0-A2B5-0093967E853B}
 		{42C2EE31-DF9B-4909-BB98-438E3A21EA18} = {69290E46-397D-481F-970C-C9A4D5C635EE}
-		{A1162144-A71A-436F-A53F-3690F4A7AE46} = {63233099-192D-45B0-A2B5-0093967E853B}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3E4F7A53-3734-4684-AA59-3D64575BBCA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -88,9 +85,5 @@ Global
 		{42C2EE31-DF9B-4909-BB98-438E3A21EA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42C2EE31-DF9B-4909-BB98-438E3A21EA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42C2EE31-DF9B-4909-BB98-438E3A21EA18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1162144-A71A-436F-A53F-3690F4A7AE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1162144-A71A-436F-A53F-3690F4A7AE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1162144-A71A-436F-A53F-3690F4A7AE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1162144-A71A-436F-A53F-3690F4A7AE46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
