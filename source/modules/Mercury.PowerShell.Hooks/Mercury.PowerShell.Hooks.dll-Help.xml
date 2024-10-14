@@ -1,0 +1,1508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-ProxyHook</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>ProxyHook</command:noun>
+      <maml:description>
+        <maml:para>Gets a hook from the hook store or the entire hook store.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Gets a hook from the hook store or the entire hook store.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-ProxyHook</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Type</maml:name>
+          <maml:description>
+            <maml:para>The type of hook to get.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">ChangeWorkingDirectory</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">PrePrompt</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">HookType</command:parameterValue>
+          <dev:type>
+            <maml:name>HookType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>Identifier</maml:name>
+          <maml:description>
+            <maml:para>The identifier of the hook to get.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>Identifier</maml:name>
+        <maml:description>
+          <maml:para>The identifier of the hook to get.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>The preference for how to handle progress information.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Type</maml:name>
+        <maml:description>
+          <maml:para>The type of hook to get.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">HookType</command:parameterValue>
+        <dev:type>
+          <maml:name>HookType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Mercury.PowerShell.Hooks.Enums.HookType</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Mercury.PowerShell.Hooks.ComplexTypes.HookStore</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Mercury.PowerShell.Hooks.ComplexTypes.HookItem</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-ProxyHook -Type ChangeWorkingDirectory</dev:code>
+        <dev:remarks>
+          <maml:para>This example gets all hooks of type `ChangeWorkingDirectory` from the hook store.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-ProxyHook -Type ChangeWorkingDirectory -Identifier "MyHook"</dev:code>
+        <dev:remarks>
+          <maml:para>This example gets the hook with the identifier `MyHook` of type `ChangeWorkingDirectory` from the hook store.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Out-Default</command:name>
+      <command:verb>Out</command:verb>
+      <command:noun>Default</command:noun>
+      <maml:description>
+        <maml:para>Sends the output to the default formatter and to the default output cmdlet.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>PowerShell automatically adds `Out-Default` to the end of every pipeline. `Out-Default` decides how to format and output the object stream. If the object stream is a stream of strings, `Out-Default` pipes these directly to `Out-Host` which calls the appropriate APIs provided by the host. If the object stream does not contain strings, `Out-Default` inspects the object to determine what to do. First it looks at the object type and determines whether there is a registered view for this object type.</maml:para>
+      <maml:para>PowerShell defines an XML schema and a mechanism (the `Update-FormatData` cmdlet) where anyone can register views for an object type. You can specify wide , list , table , or custom views for any object type. The views specify which properties to display and how they should be displayed. If a view is registered, it defines which formatter to use. So if the registered view is a table view, `Out-Default` streams the objects to `Format-Table | Out-Host`. `Format-Table` transforms the objects into a stream of Formatting records (driven by the data in the view definition) and `Out-Host` transforms the formatting records into calls on the Host interface.</maml:para>
+      <maml:para>This cmdlet isn't intended to be used by the end user. Other cmdlets are recommended for controlling output like Out-Host (https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/Out-Host.md)or using `Format-*` cmdlets and the Format.ps1xml (https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Format.ps1xml.md)file to control formatting.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Out-Default</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>Accepts input to the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">PSObject</command:parameterValue>
+          <dev:type>
+            <maml:name>PSObject</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Transcript</maml:name>
+          <maml:description>
+            <maml:para>Determines whether the output should be sent to PowerShell's transcription services.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>Accepts input to the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">PSObject</command:parameterValue>
+        <dev:type>
+          <maml:name>PSObject</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>The preference for how to handle progress information.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Transcript</maml:name>
+        <maml:description>
+          <maml:para>Determines whether the output should be sent to PowerShell's transcription services.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.PSObject</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>Get-Process | Select-Object -First 5 | Out-Default
+
+NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     12     2.56       5.20       0.00    7376   0 aesm_service
+     48    34.32      18.10      26.64    9320  13 AlertusDesktopAlert
+     24    13.97      12.74       0.77   12656  13 ApplicationFrameHost
+      8     1.79       4.41       0.00    8180   0 AppVShNotify
+      9     1.99       5.07       0.19   19320  13 AppVShNotify</dev:code>
+        <dev:remarks>
+          <maml:para>No error is thrown when using `Out-Default` but the output isn't changed if it's not explicitly called.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.core/out-default?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Format-Custom</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Utility/Format-Custom.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Format-List</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Utility/Format-List.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Format-Table</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Utility/Format-Table.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Format-Wide</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Utility/Format-Wide.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>How PowerShell Formatting and Outputting REALLY works</maml:linkText>
+        <maml:uri>https://devblogs.microsoft.com/powershell/how-powershell-formatting-and-outputting-really-works/</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Pop-Location</command:name>
+      <command:verb>Pop</command:verb>
+      <command:noun>Location</command:noun>
+      <maml:description>
+        <maml:para>Changes the current location to the location most recently pushed onto the stack.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The `Pop-Location` cmdlet changes the current location to the location most recently pushed onto the stack by using the `Push-Location` cmdlet. You can pop a location from the default stack or from a stack that you create by using a `Push-Location` command.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Pop-Location</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Passes an object that represents the location to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>StackName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the location stack from which the location is popped. Enter a location stack name.</maml:para>
+            <maml:para>Without this parameter, `Pop-Location` pops a location from the current location stack. By default, the current location stack is the unnamed default location stack that PowerShell creates. To make a location stack the current location stack, use the StackName parameter of the `Set-Location` cmdlet. For more information about location stacks, see the Notes (#notes).</maml:para>
+            <maml:para>`Pop-Location` cannot pop a location from the unnamed default stack unless it is the current location stack.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Passes an object that represents the location to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>The preference for how to handle progress information.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>StackName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the location stack from which the location is popped. Enter a location stack name.</maml:para>
+          <maml:para>Without this parameter, `Pop-Location` pops a location from the current location stack. By default, the current location stack is the unnamed default location stack that PowerShell creates. To make a location stack the current location stack, use the StackName parameter of the `Set-Location` cmdlet. For more information about location stacks, see the Notes (#notes).</maml:para>
+          <maml:para>`Pop-Location` cannot pop a location from the unnamed default stack unless it is the current location stack.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.PathInfo</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>PowerShell includes the following aliases for `Pop-Location`:</maml:para>
+        <maml:para>- All Platforms:   - `popd`</maml:para>
+        <maml:para>PowerShell supports multiple runspaces per process. Each runspace has its own current directory . This is not the same as `[System.Environment]::CurrentDirectory`. This behavior can be an issue when calling .NET APIs or running native applications without providing explicit directory paths.</maml:para>
+        <maml:para>Even if the location cmdlets did set the process-wide current directory, you can't depend on it because another runspace might change it at any time. You should use the location cmdlets to perform path-based operations using the current working directory specific to the current runspace.</maml:para>
+        <maml:para>A stack is a last-in, first-out list in which only the most recently added item can be accessed. You add items to a stack in the order that you use them, and then retrieve them for use in the reverse order. PowerShell lets you store provider locations in location stacks.</maml:para>
+        <maml:para>PowerShell creates an unnamed default location stack and you can create multiple named location stacks. If you do not specify a stack name, PowerShell uses the current location stack. By default, the unnamed default location is the current location stack, but you can use the `Set-Location` cmdlet to change the current location stack.</maml:para>
+        <maml:para>To manage location stacks, use the PowerShell `*-Location` cmdlets, as follows:</maml:para>
+        <maml:para>- To add a location to a location stack, use the `Push-Location` cmdlet.</maml:para>
+        <maml:para>- To get a location from a location stack, use the `Pop-Location` cmdlet.</maml:para>
+        <maml:para>- To display the locations in the current location stack, use the Stack parameter of the   `Get-Location` cmdlet.</maml:para>
+        <maml:para>- To display the locations in a named location stack, use the StackName parameter of the   `Get-Location` cmdlet.</maml:para>
+        <maml:para>- To create a new location stack, use the StackName parameter of the `Push-Location` cmdlet. If   you specify a stack that does not exist, `Push-Location` creates the stack.</maml:para>
+        <maml:para>- To make a location stack the current location stack, use the StackName parameter of the   `Set-Location` cmdlet.</maml:para>
+        <maml:para>The unnamed default location stack is fully accessible only when it is the current location stack. If you make a named location stack the current location stack, you can no longer use the `Push-Location` or `Pop-Location` cmdlets to add or get items from the default stack or use the `Get-Location` cmdlet to display the locations in the unnamed stack. To make the unnamed stack the current stack, use the StackName parameter of the `Set-Location` cmdlet with a value of `$Null` or an empty string (`""`).</maml:para>
+        <maml:para>You can also refer to `Pop-Location` by its built-in alias, `popd`. For more information, see about_Aliases (https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Aliases.md).</maml:para>
+        <maml:para>`Pop-Location` is designed to work with the data exposed by any provider. To list the providers available in your session, type `Get-PSProvider`. For more information, see about_Providers (https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Providers.md).</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>---------- Example 1: Change to most recent location ----------</maml:title>
+        <dev:code>PS C:\&gt; Pop-Location</dev:code>
+        <dev:remarks>
+          <maml:para>This command changes your location to the location most recently added to the current stack.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-- Example 2: Change to most recent location in a named stack --</maml:title>
+        <dev:code>PS C:\&gt; Pop-Location -StackName "Stack2"</dev:code>
+        <dev:remarks>
+          <maml:para>This command changes your location to the location most recently added to the Stack2 location stack.</maml:para>
+          <maml:para>For more information about location stacks, see the Notes (#notes).</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-- Example 3: Move between locations for different providers --</maml:title>
+        <dev:code>PS C:\&gt; pushd HKLM:\Software\Microsoft\PowerShell
+PS HKLM:\Software\Microsoft\PowerShell&gt; pushd Cert:\LocalMachine\TrustedPublisher
+PS cert:\LocalMachine\TrustedPublisher&gt; popd
+PS HKLM:\Software\Microsoft\PowerShell&gt; popd
+PS C:\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>These commands use the `Push-Location` and `Pop-Location` cmdlets to move between locations supported by different PowerShell providers. The commands use the `pushd` alias for `Push-Location` and the `popd` alias for `Pop-Location`.</maml:para>
+          <maml:para>The first command pushes the current file system location onto the stack and moves to the HKLM drive supported by the PowerShell Registry provider.</maml:para>
+          <maml:para>The second command pushes the registry location onto the stack and moves to a location supported by the PowerShell certificate provider.</maml:para>
+          <maml:para>The last two commands pop those locations off the stack. The first `popd` command returns to the Registry drive, and the second command returns to the file system drive.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/pop-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Get-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Push-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Push-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Set-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>about_Aliases</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Aliases.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>about_Providers</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Providers.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Push-Location</command:name>
+      <command:verb>Push</command:verb>
+      <command:noun>Location</command:noun>
+      <maml:description>
+        <maml:para>Adds the current location to the top of a location stack.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The `Push-Location` cmdlet adds ("pushes") the current location onto a location stack. If you specify a path, `Push-Location` pushes the current location onto a location stack and then changes the current location to the location specified by the path. You can use the `Pop-Location` cmdlet to get locations from the location stack.</maml:para>
+      <maml:para>By default, the `Push-Location` cmdlet pushes the current location onto the current location stack, but you can use the StackName parameter to specify an alternate location stack. If the stack does not exist, `Push-Location` creates it.</maml:para>
+      <maml:para>For more information about location stacks, see the Notes (#notes).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Push-Location</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>LiteralPath</maml:name>
+          <maml:description>
+            <maml:para>Specifies the path to the new location. Unlike the Path parameter, the value of the LiteralPath parameter is used exactly as it is typed. No characters are interpreted as wildcards. If the path includes escape characters, enclose it in single quotation marks. Single quotation marks tell PowerShell not to interpret any characters as escape sequences.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Passes an object representing the location to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>StackName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the location stack to which the current location is added. Enter a location stack name. If the stack does not exist, `Push-Location` creates it.</maml:para>
+            <maml:para>Without this parameter, `Push-Location` adds the location to the current location stack. By default, the current location stack is the unnamed default location stack that PowerShell creates. To make a location stack the current location stack, use the StackName parameter of the `Set-Location` cmdlet. For more information about location stacks, see the Notes (#notes).</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; `Push-Location` cannot add a location to the unnamed default stack unless it is the current &gt; location stack.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Default stack</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Push-Location</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="PSPath, LP">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>Changes your location to the location specified by this path after it adds (pushes) the current location onto the top of the stack. Enter a path to any location whose provider supports this cmdlet. Wildcards are permitted. The parameter name is optional.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Passes an object representing the location to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>StackName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the location stack to which the current location is added. Enter a location stack name. If the stack does not exist, `Push-Location` creates it.</maml:para>
+            <maml:para>Without this parameter, `Push-Location` adds the location to the current location stack. By default, the current location stack is the unnamed default location stack that PowerShell creates. To make a location stack the current location stack, use the StackName parameter of the `Set-Location` cmdlet. For more information about location stacks, see the Notes (#notes).</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; `Push-Location` cannot add a location to the unnamed default stack unless it is the current &gt; location stack.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Default stack</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>LiteralPath</maml:name>
+        <maml:description>
+          <maml:para>Specifies the path to the new location. Unlike the Path parameter, the value of the LiteralPath parameter is used exactly as it is typed. No characters are interpreted as wildcards. If the path includes escape characters, enclose it in single quotation marks. Single quotation marks tell PowerShell not to interpret any characters as escape sequences.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Passes an object representing the location to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="PSPath, LP">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>Changes your location to the location specified by this path after it adds (pushes) the current location onto the top of the stack. Enter a path to any location whose provider supports this cmdlet. Wildcards are permitted. The parameter name is optional.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>The preference for how to handle progress information.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>StackName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the location stack to which the current location is added. Enter a location stack name. If the stack does not exist, `Push-Location` creates it.</maml:para>
+          <maml:para>Without this parameter, `Push-Location` adds the location to the current location stack. By default, the current location stack is the unnamed default location stack that PowerShell creates. To make a location stack the current location stack, use the StackName parameter of the `Set-Location` cmdlet. For more information about location stacks, see the Notes (#notes).</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; `Push-Location` cannot add a location to the unnamed default stack unless it is the current &gt; location stack.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Default stack</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.PathInfo</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>PowerShell includes the following aliases for `Push-Location`:</maml:para>
+        <maml:para>- All Platforms:   - `pushd`</maml:para>
+        <maml:para>PowerShell supports multiple runspaces per process. Each runspace has its own current directory . This is not the same as `[System.Environment]::CurrentDirectory`. This behavior can be an issue when calling .NET APIs or running native applications without providing explicit directory paths.</maml:para>
+        <maml:para>Even if the location cmdlets did set the process-wide current directory, you can't depend on it because another runspace might change it at any time. You should use the location cmdlets to perform path-based operations using the current working directory specific to the current runspace.</maml:para>
+        <maml:para>A stack is a last-in, first-out list in which only the most recently added item is accessible. You add items to a stack in the order that you use them, and then retrieve them for use in the reverse order. PowerShell lets you store provider locations in location stacks.</maml:para>
+        <maml:para>PowerShell creates an unnamed default location stack and you can create multiple named location stacks. If you do not specify a stack name, PowerShell uses the current location stack. By default, the unnamed default location is the current location stack, but you can use the `Set-Location` cmdlet to change the current location stack.</maml:para>
+        <maml:para>To manage location stacks, use the PowerShell Location cmdlets, as follows.</maml:para>
+        <maml:para>- To add a location to a location stack, use the `Push-Location` cmdlet.</maml:para>
+        <maml:para>- To get a location from a location stack, use the `Pop-Location` cmdlet.</maml:para>
+        <maml:para>- To display the locations in the current location stack, use the Stack parameter of the   `Get-Location` cmdlet.</maml:para>
+        <maml:para>- To display the locations in a named location stack, use the StackName parameter of the   `Get-Location` cmdlet.</maml:para>
+        <maml:para>- To create a new location stack, use the StackName parameter of the `Push-Location` cmdlet. If you   specify a stack that does not exist, `Push-Location` creates the stack.</maml:para>
+        <maml:para>- To make a location stack the current location stack, use the StackName parameter of the   `Set-Location` cmdlet.</maml:para>
+        <maml:para>The unnamed default location stack is fully accessible only when it is the current location stack. If you make a named location stack the current location stack, you can no longer use the `Push-Location` or `Pop-Location` cmdlets to add or get items from the default stack or use the `Get-Location` cmdlet to display the locations in the unnamed stack. To make the unnamed stack the current stack, use the StackName parameter of the `Set-Location` cmdlet with a value of `$null` or an empty string (`""`).</maml:para>
+        <maml:para>You can also refer to `Push-Location` by its built-in alias, `pushd`. For more information, see about_Aliases (https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Aliases.md).</maml:para>
+        <maml:para>The `Push-Location` cmdlet is designed to work with the data exposed by any provider. To list the providers available in your session, type `Get-PSProvider`. For more information, see about_Providers (https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Providers.md).</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Push-Location C:\Windows</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Push-Location HKLM:\Software\Policies -StackName RegFunction</dev:code>
+        <dev:remarks>
+          <maml:para>You can use the Location cmdlets in any PowerShell drive (PSDrive).</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Push-Location</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>----------- Example 4 - Create and use a named stack -----------</maml:title>
+        <dev:code>PS C:\&gt; Push-Location ~ -StackName Stack2
+PS C:\Users\User01&gt; Pop-Location -StackName Stack2
+PS C:\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>The first command pushes the current location onto a new stack named Stack2, and then changes the current location to the home directory, represented in the command by the tilde symbol (`~`), which when used on a FileSystem provider drives is equivalent to `$HOME`.</maml:para>
+          <maml:para>If Stack2 does not already exist in the session, `Push-Location` creates it. The second command uses the `Pop-Location` cmdlet to pop the original location (`C:`) from the Stack2 stack. Without the StackName parameter, `Pop-Location` would pop the location from the unnamed default stack.</maml:para>
+          <maml:para>For more information about location stacks, see the Notes (#notes).</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/push-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Get-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Pop-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Pop-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Set-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>about_Aliases</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Aliases.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>about_Providers</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/About/about_Providers.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Register-ProxyHook</command:name>
+      <command:verb>Register</command:verb>
+      <command:noun>ProxyHook</command:noun>
+      <maml:description>
+        <maml:para>Registers a hook in the hook store.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Registers the provided hook in the hook store. The hook will be executed when the hook type is triggered.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Register-ProxyHook</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Type</maml:name>
+          <maml:description>
+            <maml:para>The type of the hook.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">ChangeWorkingDirectory</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">PrePrompt</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">HookType</command:parameterValue>
+          <dev:type>
+            <maml:name>HookType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>Identifier</maml:name>
+          <maml:description>
+            <maml:para>The unique identifier for the hook.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none">
+          <maml:name>Action</maml:name>
+          <maml:description>
+            <maml:para>The action to be executed when the hook is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ScriptBlock</command:parameterValue>
+          <dev:type>
+            <maml:name>ScriptBlock</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Passes an object representing the hook to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none">
+        <maml:name>Action</maml:name>
+        <maml:description>
+          <maml:para>The action to be executed when the hook is triggered.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ScriptBlock</command:parameterValue>
+        <dev:type>
+          <maml:name>ScriptBlock</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>Identifier</maml:name>
+        <maml:description>
+          <maml:para>The unique identifier for the hook.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Passes an object representing the hook to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>The preference for how to handle progress information.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Type</maml:name>
+        <maml:description>
+          <maml:para>The type of the hook.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">HookType</command:parameterValue>
+        <dev:type>
+          <maml:name>HookType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Mercury.PowerShell.Hooks.Enums.HookType</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.ScriptBlock</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Mercury.PowerShell.Hooks.ComplexTypes.HookItem</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Register-ProxyHook -Type PrePrompt -Identifier "87b2eda3-eb76-42bd-a704-71ea84bf3a15" -Action { Write-Host "Hello, World!" }</dev:code>
+        <dev:remarks>
+          <maml:para>This example registers a hook that writes "Hello, World!" to the console when the PrePrompt hook type is triggered. The identifier can be any string that uniquely identifies the hook.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Register-ProxyHook -Type ChangeWorkingDirectory -Identifier "SayCurrentDirectory" -Action { Write-Host "The current directory is: $PWD" }</dev:code>
+        <dev:remarks>
+          <maml:para>This example registers a hook that writes the current directory to the console when the ChangeWorkingDirectory hook type is triggered.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Register-ProxyHook -Type ChangeWorkingDirectory -Identifier "SayCurrentDirectory" -Action $Function:SomeFunctionYouCreated</dev:code>
+        <dev:remarks>
+          <maml:para>This example registers a hook that calls a function named `SomeFunctionYouCreated` when the ChangeWorkingDirectory hook type is triggered.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://go.microsoft.com/fwlink/?LinkID=2097105</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-Location</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>Location</command:noun>
+      <maml:description>
+        <maml:para>Sets the current working location to a specified location.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The `Set-Location` cmdlet sets the working location to a specified location. That location could be a directory, a subdirectory, a registry location, or any provider path.</maml:para>
+      <maml:para>PowerShell 6.2 added support for `-` and `+` as a values for the Path parameter. PowerShell maintains a history of the last 20 locations that can be accessed with `-` and `+`. This list is independent from the location stack that is accessed using the StackName parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-Location</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>LiteralPath</maml:name>
+          <maml:description>
+            <maml:para>Specifies a path of the location. The value of the LiteralPath parameter is used exactly as it is typed. No characters are interpreted as wildcard characters. If the path includes escape characters, enclose it in single quotation marks. Single quotation marks tell PowerShell not to interpret any characters as escape sequences.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns a PathInfo object that represents the location. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-Location</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="PSPath, LP">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>Specify the path of a new working location. If no path is provided, `Set-Location` defaults to the current user's home directory. When wildcards are used, the cmdlet chooses the container (directory, registry key, certificate store) that matches the wildcard pattern. If the wildcard pattern matches more than one container, the cmdlet returns an error.</maml:para>
+            <maml:para>PowerShell keeps a history of the last 20 locations you have set. If the Path parameter value is the `-` character, then the new working location will be the previous working location in history (if it exists). Similarly, if the value is the `+` character, then the new working location will be the next working location in history (if it exists). This is similar to using `Pop-Location` and `Push-Location` except that the history is a list, not a stack, and is implicitly tracked, not manually controlled. There is no way to view the history list.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns a PathInfo object that represents the location. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-Location</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns a PathInfo object that represents the location. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>StackName</maml:name>
+          <maml:description>
+            <maml:para>Specifies an existing location stack name that this cmdlet makes the current location stack. Enter a location stack name. To indicate the unnamed default location stack, type `$null` or an empty string (`""`).</maml:para>
+            <maml:para>Using this parameter does not change the current location. It only changes the stack used by the ` -Location` cmdlets. The ` -Location` cmdlets act on the current stack unless you use the StackName parameter to specify a different stack. For more information about location stacks, see the Notes (#notes).</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>LiteralPath</maml:name>
+        <maml:description>
+          <maml:para>Specifies a path of the location. The value of the LiteralPath parameter is used exactly as it is typed. No characters are interpreted as wildcard characters. If the path includes escape characters, enclose it in single quotation marks. Single quotation marks tell PowerShell not to interpret any characters as escape sequences.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Returns a PathInfo object that represents the location. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="PSPath, LP">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>Specify the path of a new working location. If no path is provided, `Set-Location` defaults to the current user's home directory. When wildcards are used, the cmdlet chooses the container (directory, registry key, certificate store) that matches the wildcard pattern. If the wildcard pattern matches more than one container, the cmdlet returns an error.</maml:para>
+          <maml:para>PowerShell keeps a history of the last 20 locations you have set. If the Path parameter value is the `-` character, then the new working location will be the previous working location in history (if it exists). Similarly, if the value is the `+` character, then the new working location will be the next working location in history (if it exists). This is similar to using `Pop-Location` and `Push-Location` except that the history is a list, not a stack, and is implicitly tracked, not manually controlled. There is no way to view the history list.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>The preference for how to handle progress information.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>StackName</maml:name>
+        <maml:description>
+          <maml:para>Specifies an existing location stack name that this cmdlet makes the current location stack. Enter a location stack name. To indicate the unnamed default location stack, type `$null` or an empty string (`""`).</maml:para>
+          <maml:para>Using this parameter does not change the current location. It only changes the stack used by the ` -Location` cmdlets. The ` -Location` cmdlets act on the current stack unless you use the StackName parameter to specify a different stack. For more information about location stacks, see the Notes (#notes).</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>PowerShell includes the following aliases for `Set-Location`:</maml:para>
+        <maml:para>- All Platforms:   - `cd`   - `chdir`   - `sl`</maml:para>
+        <maml:para>PowerShell supports multiple runspaces per process. Each runspace has its own current directory . This is not the same as `[System.Environment]::CurrentDirectory`. This behavior can be an issue when calling .NET APIs or running native applications without providing explicit directory paths.</maml:para>
+        <maml:para>Even if the location cmdlets did set the process-wide current directory, you can't depend on it because another runspace might change it at any time. You should use the location cmdlets to perform path-based operations using the current working directory specific to the current runspace.</maml:para>
+        <maml:para>The `Set-Location` cmdlet is designed to work with the data exposed by any provider. To list the providers available in your session, type `Get-PSProvider`. For more information, see about_Providers (https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Core/about/about_Providers.md).</maml:para>
+        <maml:para>A stack is a last-in, first-out list in which only the most recently added item can be accessed. You add items to a stack in the order that you use them, and then retrieve them for use in the reverse order. PowerShell lets you store provider locations in location stacks. PowerShell creates an unnamed default location stack. You can create multiple named location stacks. If you do not specify a stack name, PowerShell uses the current location stack. By default, the unnamed default location is the current location stack, but you can use the `Set-Location` cmdlet to change the current location stack.</maml:para>
+        <maml:para>To manage location stacks, use the `*-Location` cmdlets, as follows:</maml:para>
+        <maml:para>- To add a location to a location stack, use the `Push-Location` cmdlet.</maml:para>
+        <maml:para>- To get a location from a location stack, use the `Pop-Location` cmdlet.</maml:para>
+        <maml:para>- To display the locations in the current location stack, use the Stack parameter of the   `Get-Location` cmdlet. To display the locations in a named location stack, use the StackName parameter of `Get-Location`.</maml:para>
+        <maml:para>- To create a new location stack, use the StackName parameter of `Push-Location`. If you specify   a stack that does not exist, `Push-Location` creates the stack.</maml:para>
+        <maml:para>- To make a location stack the current location stack, use the StackName parameter of   `Set-Location`.</maml:para>
+        <maml:para>The unnamed default location stack is fully accessible only when it is the current location stack. If you make a named location stack the current location stack, you can no longer use the `Push-Location` or `Pop-Location` cmdlets to add or get items from the default stack or use the `Get-Location` cmdlet to display the locations in the unnamed stack. To make the unnamed stack the current stack, use the StackName parameter of the `Set-Location` cmdlet with a value of `$null` or an empty string (`""`).</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>------------- Example 1: Set the current location -------------</maml:title>
+        <dev:code>PS C:\&gt; Set-Location -Path "HKLM:\"
+PS HKLM:\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>This command sets the current location to the root of the `HKLM:` drive.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title> Example 2: Set the current location and display that location </maml:title>
+        <dev:code>PS C:\&gt; Set-Location -Path "Env:\" -PassThru
+
+Path
+----
+Env:\
+
+PS Env:\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>This command sets the current location to the root of the `Env:` drive. It uses the PassThru parameter to direct PowerShell to return a PathInfo object that represents the `Env:` location.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Set location to the current location in the C: drive</maml:title>
+        <dev:code>PS C:\Windows\&gt; Set-Location HKLM:\
+PS HKLM:\&gt; Set-Location C:
+PS C:\Windows\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>The first command sets the location to the root of the `HKLM:` drive in the Registry provider. The second command sets the location to the current location of the `C:` drive in the FileSystem provider. When the drive name is specified in the form `&lt;DriveName&gt;:` (without backslash), the cmdlet sets the location to the current location in the PSDrive. To get the current location in the PSDrive use `Get-Location -PSDrive &lt;DriveName&gt;` command.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>----- Example 4: Set the current location to a named stack -----</maml:title>
+        <dev:code>PS C:\&gt; Push-Location -Path 'C:\Program Files\PowerShell\' -StackName "Paths"
+PS C:\Program Files\PowerShell\&gt; Set-Location -StackName "Paths"
+PS C:\Program Files\PowerShell\&gt; Get-Location -Stack
+
+Path
+----
+C:\</dev:code>
+        <dev:remarks>
+          <maml:para>The first command adds the current location to the Paths stack. The second command makes the Paths location stack the current location stack. The third command displays the locations in the current location stack.</maml:para>
+          <maml:para>The `*-Location` cmdlets use the current location stack unless a different location stack is specified in the command. For information about location stacks, see the Notes (#notes).</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>---- Example 5: Navigate location history using `+` or `-` ----</maml:title>
+        <dev:code>PS C:\&gt; Set-Location -Path $env:SystemRoot
+PS C:\Windows&gt; Set-Location -Path Cert:\
+PS Cert:\&gt; Set-Location -Path HKLM:\
+PS HKLM:\&gt;
+
+# Navigate back through the history using "-"
+PS HKLM:\&gt; Set-Location -Path -
+PS Cert:\&gt; Set-Location -Path -
+PS C:\Windows&gt;
+
+# Navigate using the Set-Location alias "cd" and the implicit positional Path parameter
+PS C:\Windows&gt; cd -
+PS C:\&gt; cd +
+PS C:\Windows&gt; cd +
+PS Cert:\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>Using the alias, `cd -` or `cd +` is an easy way to navigate through your location history while in your terminal. For more information on navigating with `-`/`+`, see the Path parameter.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Get-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Pop-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Pop-Location.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Push-Location</maml:linkText>
+        <maml:uri>https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/7.2/Microsoft.PowerShell.Management/Push-Location.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Unregister-ProxyHook</command:name>
+      <command:verb>Unregister</command:verb>
+      <command:noun>ProxyHook</command:noun>
+      <maml:description>
+        <maml:para>Unregisters a hook from the hook store.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Unregisters the provided hook from the hook store. The hook will no longer be executed when the hook type is triggered.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Unregister-ProxyHook</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Type</maml:name>
+          <maml:description>
+            <maml:para>The type of the hook to be unregistered.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">ChangeWorkingDirectory</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">PrePrompt</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">HookType</command:parameterValue>
+          <dev:type>
+            <maml:name>HookType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>Identifier</maml:name>
+          <maml:description>
+            <maml:para>The unique identifier of the hook to be unregistered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Passes an object representing the hook to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>The preference for how to handle progress information.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>Identifier</maml:name>
+        <maml:description>
+          <maml:para>The unique identifier of the hook to be unregistered.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Passes an object representing the hook to the pipeline. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>The preference for how to handle progress information.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Type</maml:name>
+        <maml:description>
+          <maml:para>The type of the hook to be unregistered.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">HookType</command:parameterValue>
+        <dev:type>
+          <maml:name>HookType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Mercury.PowerShell.Hooks.Enums.HookType</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Mercury.PowerShell.Hooks.ComplexTypes.HookItem</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Unregister-ProxyHook -Type PrePrompt -Identifier "87b2eda3-eb76-42bd-a704-71ea84bf3a15"</dev:code>
+        <dev:remarks>
+          <maml:para>This example unregisters the hook with the identifier `87b2eda3-eb76-42bd-a704-71ea84bf3a15` from the hook store.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Unregister-ProxyHook -Type ChangeWorkingDirectory -Identifier "SayCurrentDirectory"</dev:code>
+        <dev:remarks>
+          <maml:para>This example unregisters the hook with the identifier `SayCurrentDirectory` from the hook store.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://go.microsoft.com/fwlink/?LinkID=2097049</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>
