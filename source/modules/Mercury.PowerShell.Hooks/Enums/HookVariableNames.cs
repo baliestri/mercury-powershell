@@ -17,22 +17,20 @@ public readonly struct HookVariableNames {
   /// </summary>
   public HookType EquivalentHookType { get; }
 
-  private HookVariableNames(string currentValue) : this(currentValue, tryGetEquivalentHookType(currentValue)) { }
+  private HookVariableNames(string currentValue) : this(tryGetEquivalentHookType(currentValue)) { }
 
-  private HookVariableNames(HookType equivalentHookType) : this(tryGetCurrentValue(equivalentHookType), equivalentHookType) { }
-
-  private HookVariableNames(string currentValue, HookType equivalentHookType)
-    => (CurrentValue, EquivalentHookType) = (formatHookVariableName(currentValue), equivalentHookType);
+  private HookVariableNames(HookType equivalentHookType)
+    => (CurrentValue, EquivalentHookType) = (formatHookVariableName(equivalentHookType), equivalentHookType);
 
   /// <summary>
   ///   Hook for changing the working directory.
   /// </summary>
-  public static readonly HookVariableNames ChangeWorkingDirectory = new(nameof(HookType.ChangeWorkingDirectory), HookType.ChangeWorkingDirectory);
+  public static readonly HookVariableNames ChangeWorkingDirectory = new(HookType.ChangeWorkingDirectory);
 
   /// <summary>
   ///   Hook for pre-prompt.
   /// </summary>
-  public static readonly HookVariableNames PrePrompt = new(nameof(HookType.PrePrompt), HookType.PrePrompt);
+  public static readonly HookVariableNames PrePrompt = new(HookType.PrePrompt);
 
   private static HookType tryGetEquivalentHookType(string value)
     => value switch {
@@ -41,14 +39,7 @@ public readonly struct HookVariableNames {
       var _ => throw new ArgumentException("Invalid hook variable name.", nameof(value))
     };
 
-  private static string tryGetCurrentValue(HookType hookType)
-    => hookType switch {
-      HookType.ChangeWorkingDirectory => ChangeWorkingDirectory,
-      HookType.PrePrompt => PrePrompt,
-      var _ => throw new ArgumentException("Invalid hook type.", nameof(hookType))
-    };
-
-  private static string formatHookVariableName(string hookType)
+  private static string formatHookVariableName(HookType hookType)
     => $"MercuryProxyHook{hookType}";
 
   public static implicit operator string(HookVariableNames hookVariableNames) => hookVariableNames.CurrentValue;
