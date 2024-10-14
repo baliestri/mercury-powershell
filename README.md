@@ -2,6 +2,8 @@
 
 PowerShell modules for [Mercury][1]. Contains modules such as:
 
-- None yet.
+- [Mercury.PowerShell.Hooks][2]
 
 [1]: https://github.com/baliestri/mercury
+
+[2]: ./source/modules/Mercury.PowerShell.Hooks
