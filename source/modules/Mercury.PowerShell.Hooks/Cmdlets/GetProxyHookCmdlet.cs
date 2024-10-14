@@ -5,6 +5,7 @@ using System.Management.Automation;
 using Mercury.PowerShell.Hooks.ArgumentCompleters.Attributes;
 using Mercury.PowerShell.Hooks.ComplexTypes;
 using Mercury.PowerShell.Hooks.Enums;
+using Mercury.PowerShell.Hooks.Exceptions;
 
 namespace Mercury.PowerShell.Hooks.Cmdlets;
 
@@ -42,14 +43,14 @@ public sealed class GetProxyHookCmdlet : PSCmdlet {
     }
 
     if (!string.IsNullOrWhiteSpace(Identifier)) {
-      HookItem? item = hookStore.Items.FirstOrDefault(item => item.Identifier == Identifier);
+      if (hookStore.Items.Select(item => item.Identifier).Contains(Identifier)) {
+        var item = hookStore.Items.FirstOrDefault(item => item.Identifier == Identifier);
 
-      if (item is not null) {
         WriteObject(item);
         return;
       }
 
-      WriteObject($"The hook with identifier '{Identifier}' was not found in the '{Type}' hook store.");
+      WriteError(HookStoreIdentifierNotFoundException.ToRecord(Type, Identifier));
       return;
     }
 

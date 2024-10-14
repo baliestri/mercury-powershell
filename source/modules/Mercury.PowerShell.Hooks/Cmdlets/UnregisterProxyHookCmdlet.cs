@@ -5,6 +5,7 @@ using System.Management.Automation;
 using Mercury.PowerShell.Hooks.ArgumentCompleters.Attributes;
 using Mercury.PowerShell.Hooks.ComplexTypes;
 using Mercury.PowerShell.Hooks.Enums;
+using Mercury.PowerShell.Hooks.Exceptions;
 
 namespace Mercury.PowerShell.Hooks.Cmdlets;
 
@@ -51,7 +52,7 @@ public sealed class UnregisterProxyHookCmdlet : PSCmdlet {
 
     if (!hookStore.Items.Remove(item) &&
         PassThru.IsPresent) {
-      WriteObject($"The hook with identifier '{Identifier}' was not found in the '{Type}' hook store.");
+      WriteError(HookStoreIdentifierNotFoundException.ToRecord(Type, Identifier));
 
       return;
     }
