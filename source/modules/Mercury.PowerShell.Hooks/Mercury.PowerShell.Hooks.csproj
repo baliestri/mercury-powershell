@@ -30,13 +30,14 @@
     <None Update="Mercury.PowerShell.Hooks.psd1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Mercury.PowerShell.Hooks.dll-Help.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.5"/>
   </ItemGroup>
+
+  <Target Name="GenerateDocumentationXml" AfterTargets="Build">
+    <Exec Command="pwsh.exe -nop -nol -noni -c '$(SolutionDir)/docs/New-XmlDocumentation.ps1 -Language en-US -Module $(ProjectName) -OutputDirectory $(ProjectDir)$(OutputPath)'"/>
+  </Target>
 
 </Project>
