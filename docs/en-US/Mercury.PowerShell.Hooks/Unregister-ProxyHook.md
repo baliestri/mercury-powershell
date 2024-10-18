@@ -1,60 +1,76 @@
 ﻿---
 external help file: Mercury.PowerShell.Hooks.dll-Help.xml
 Module Name: Mercury.PowerShell.Hooks
-online version:
+online version: https://go.microsoft.com/fwlink/?LinkID=2097049
 schema: 2.0.0
 ---
 
-# Get-ProxyHook
+# Unregister-ProxyHook
 
 ## SYNOPSIS
 
-Gets a hook from the hook store or the entire hook store.
+Unregisters a hook from the hook store.
 
 ## SYNTAX
 
 ```
-Get-ProxyHook [-Type] <HookType> [[-Identifier] <String>] [-ProgressAction <ActionPreference>]
+Unregister-ProxyHook [-Type] <HookType> [-Identifier] <String> [-PassThru] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Gets a hook from the hook store or the entire hook store.
+Unregisters the provided hook from the hook store. The hook will no longer be executed when the hook type is triggered.
 
 ## EXAMPLES
 
 ### Example 1
 
 ```powershell
-PS C:\> Get-ProxyHook -Type ChangeWorkingDirectory
+PS C:\> Unregister-ProxyHook -Type PrePrompt -Identifier "87b2eda3-eb76-42bd-a704-71ea84bf3a15"
 ```
 
-This example gets all hooks of type `ChangeWorkingDirectory` from the hook store.
+This example unregisters the hook with the identifier `87b2eda3-eb76-42bd-a704-71ea84bf3a15` from the hook store.
 
 ### Example 2
 
 ```powershell
-PS C:\> Get-ProxyHook -Type ChangeWorkingDirectory -Identifier "MyHook"
+PS C:\> Unregister-ProxyHook -Type ChangeWorkingDirectory -Identifier "SayCurrentDirectory"
 ```
 
-This example gets the hook with the identifier `MyHook` of type `ChangeWorkingDirectory` from the hook store.
+This example unregisters the hook with the identifier `SayCurrentDirectory` from the hook store.
 
 ## PARAMETERS
 
 ### -Identifier
 
-The identifier of the hook to get.
+The unique identifier of the hook to be unregistered.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -PassThru
+
+Passes an object representing the hook to the pipeline. By default, this cmdlet does not generate any output.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -76,7 +92,7 @@ Accept wildcard characters: False
 
 ### -Type
 
-The type of hook to get.
+The type of the hook to be unregistered.
 
 ```yaml
 Type: HookType
@@ -97,15 +113,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### Mercury.PowerShell.Hooks.Enums.HookType
-
 ### System.String
-
 ## OUTPUTS
 
-### Mercury.PowerShell.Hooks.ComplexTypes.HookStore
-
 ### Mercury.PowerShell.Hooks.ComplexTypes.HookItem
-
 ## NOTES
 
 ## RELATED LINKS

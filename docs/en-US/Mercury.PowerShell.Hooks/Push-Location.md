@@ -17,14 +17,12 @@ Adds the current location to the top of a location stack.
 ## SYNTAX
 
 ### Path (Default)
-
 ```
 Push-Location [[-Path] <String>] [-PassThru] [-StackName <String>] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
 ### LiteralPath
-
 ```
 Push-Location [-LiteralPath <String>] [-PassThru] [-StackName <String>] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
@@ -192,19 +190,14 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer,
--PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information,
-see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.String
-
 ## OUTPUTS
 
 ### System.Management.Automation.PathInfo
-
 ## NOTES
 
 PowerShell includes the following aliases for `Push-Location`:

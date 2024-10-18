@@ -17,19 +17,16 @@ Sets the current working location to a specified location.
 ## SYNTAX
 
 ### Path (Default)
-
 ```
 Set-Location [[-Path] <String>] [-PassThru] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### LiteralPath
-
 ```
 Set-Location [-LiteralPath <String>] [-PassThru] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Stack
-
 ```
 Set-Location [-PassThru] [-StackName <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
@@ -234,19 +231,14 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer,
--PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information,
-see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.String
-
 ## OUTPUTS
 
 ### System.Object
-
 ## NOTES
 
 PowerShell includes the following aliases for `Set-Location`:
