@@ -1,17 +1,17 @@
 @{
-  GUID = "9081d461-19a6-4a03-bd21-0469a370dfe1"
+  GUID                 = "9081d461-19a6-4a03-bd21-0469a370dfe1"
 
-  RootModule = "Mercury.PowerShell.Hooks.dll"
-  ModuleVersion = "0.1.0.0"
+  RootModule           = "Mercury.PowerShell.Hooks.dll"
+  ModuleVersion        = "0.1.0.0"
 
-  Author = "Bruno Sales"
-  Copyright = "(c) Bruno Sales. All rights reserved."
+  Author               = "Bruno Sales"
+  Copyright            = "(c) Bruno Sales. All rights reserved."
 
-  PowerShellVersion = "7.0"
+  PowerShellVersion    = "7.0"
   CompatiblePSEditions = @("Core")
 
-  FunctionsToExport = @()
-  CmdletsToExport = @(
+  FunctionsToExport    = @()
+  CmdletsToExport      = @(
     "Get-ProxyHook",
     "Register-ProxyHook",
     "Unregister-ProxyHook",
@@ -20,15 +20,15 @@
     "Push-Location",
     "Set-Location"
   )
-  VariablesToExport = @()
-  AliasesToExport = @()
+  VariablesToExport    = @()
+  AliasesToExport      = @()
 
-  PrivateData = @{
+  PrivateData          = @{
     PSData = @{
-      Tags = @("Mercury", "PowerShell", "Hooks")
-      LicenseUri = "https://github.com/baliestri/mercury-powershell/blob/main/LICENSE"
-      ProjectUri = "https://github.com/baliestri/mercury-powershell"
-      IconUri = ""
+      Tags         = @("Mercury", "PowerShell", "Hooks")
+      LicenseUri   = "https://github.com/baliestri/mercury-powershell/blob/main/LICENSE"
+      ProjectUri   = "https://github.com/baliestri/mercury-powershell"
+      IconUri      = ""
       ReleaseNotes = @"
 "@
     }
